@@ -7,23 +7,23 @@ import { Menu, X } from 'lucide-react'
 import { Button } from "@workspace/ui/components/button"
 
 const navItems = [
-  { name: 'Features', href: '/features' },
-  { name: 'Pricing', href: '/pricing' },
-  { name: 'Help', href: '/help' },
+  { name: 'Features', href: '#features' },
+  { name: 'How It Works', href: '#how-it-works' },
+  { name: 'Testimonials', href: '#testimonials' },
 ]
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <nav className="bg-white border-b">
+    <nav className="bg-gray-900  fixed w-full bg-opacity-90 z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center flex-shrink-0">
             <Link href="/" className="flex items-center space-x-2">
               
-              <span className="text-lg font-semibold text-gray-900">DJuna</span>
+              <span className="text-2xl font-bold text-purple-500">DJuna</span>
             </Link>
           </div>
 
@@ -33,7 +33,7 @@ export function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 hover:text-gray-900 text-sm font-medium"
+                className="text-white hover:text-purple-400 transition-colors"
               >
                 {item.name}
               </Link>
@@ -43,20 +43,15 @@ export function Navbar() {
           {/* Auth Links */}
           <div className="hidden lg:flex items-center space-x-4">
             <Link href="/login">
-              <Button variant="ghost" className="text-sm font-medium text-gray-700">
-                Sign In
-              </Button>
-            </Link>
-            <Link href="/signup">
-              <Button className="bg-blue-600 text-white text-sm font-medium px-4 py-2 rounded">
-                Sign Up
+              <Button variant="outline" className="border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white transition-colors">
+                Get Started
               </Button>
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="lg:hidden">
-            <Button variant="ghost" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            <Button variant="ghost" className="bg-purple-500" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               <span className="sr-only">Open main menu</span>
               {mobileMenuOpen ? (
                 <X className="block h-6 w-6" aria-hidden="true" />
@@ -76,23 +71,18 @@ export function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="block text-gray-700 hover:text-gray-900 text-base font-medium"
+                className="block text-white hover:text-purple-400 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
             <div className="mt-4 flex flex-col space-y-2">
-              <Link href="/login">
-                <Button variant="ghost" className="w-full text-base text-gray-700">
-                  Sign In
-                </Button>
-              </Link>
-              <Link href="/signup">
-                <Button className="w-full bg-blue-600 text-white text-base font-medium px-4 py-2 rounded">
-                  Sign Up
-                </Button>
-              </Link>
+            <Link href="/login">
+              <Button variant="outline" className="w-full border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white transition-colors">
+                Get Started
+              </Button>
+            </Link>
             </div>
           </div>
         </div>
