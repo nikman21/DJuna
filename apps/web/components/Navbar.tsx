@@ -42,7 +42,7 @@ export function Navbar() {
 
           {/* Auth Links */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Link href="/login">
+            <Link href="http://localhost:3001/">
               <Button variant="outline" className="border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white transition-colors">
                 Get Started
               </Button>
@@ -78,7 +78,7 @@ export function Navbar() {
               </Link>
             ))}
             <div className="mt-4 flex flex-col space-y-2">
-            <Link href="/login">
+            <Link href="http://localhost:3001/">
               <Button variant="outline" className="w-full border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white transition-colors">
                 Get Started
               </Button>
