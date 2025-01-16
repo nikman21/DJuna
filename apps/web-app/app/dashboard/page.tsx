@@ -1,18 +1,28 @@
 "use client"
 
-import { useSession, signIn } from "next-auth/react"
-import React from 'react'
+import { useSession, signIn, signOut } from "next-auth/react"
+import { redirect } from "next/navigation"
+import React, { useEffect } from 'react'
 
 const Dashboard = () => {
     const {data: session } = useSession()
-
+    useEffect(() => {
+        const checkAuthStatus = () => {
+          if(!session){
+            redirect('/')
+          }
+        }
+    
+        checkAuthStatus();
+      },[session]);
     return (
         <>
         { session ? ( 
             <>
                 <h1>
-                    Welcome Back
+                     {session?.user?.name}
                 </h1>
+                <button onClick={() => signOut()}>Signout</button>
             </>
         ): (
             <>
